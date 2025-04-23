@@ -9,10 +9,12 @@ module.exports = {
         {
           user_id: 1,
           img_url: "../assets/diamond.jpg",
+          phone: null,
         },
         {
           user_id: 3,
           img_url: "../assets/garnet.jpg",
+          phone: null,
         },
       ],
       {}

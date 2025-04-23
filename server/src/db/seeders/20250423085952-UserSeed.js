@@ -10,21 +10,21 @@ module.exports = {
           username: "Максим К.",
           email: "max@max.com",
           password: "123@Maxim",
-          phone: null,
+          
           isAdmin: false,
         },
         {
           username: "Денис О.",
           email: "denis@denis.com",
           password: "123@Denis",
-          phone: null,
+
           isAdmin: false,
         },
         {
           username: "Дарья Л.",
           email: "darya@darya.com",
           password: "123@Darya",
-          phone: null,
+
           isAdmin: false,
         },
       ],

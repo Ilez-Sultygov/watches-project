@@ -21,10 +21,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      phone: {
-        type: Sequelize.STRING,
-        allowNull: true,
-      },
+      
       isAdmin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,

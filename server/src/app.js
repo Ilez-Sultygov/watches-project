@@ -1,3 +1,4 @@
+
 const path = require('path'); //* Импорт библиотеки path
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') }); //* Подключение переменных окружения
 const express = require('express'); //* Импорт библиотеки express
