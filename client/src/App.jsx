@@ -4,7 +4,7 @@ import CustomOrderPage from './pages/CustomOrderPage/CustomOrderPage'
 import UserApi from './entities/user/UserApi';
 import { setAccessToken } from './shared/lib/axiosInstance';
 
-import("./App.css");
+// import("./App.css");
 import { BrowserRouter, Routes, Route } from "react-router";
 import Root from "./app/Root";
 import AuthPage from "./pages/auth/AuthPage";

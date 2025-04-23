@@ -8,10 +8,11 @@ const serverConfig = (app) => {
   app.use(express.json());
   app.use(morgan('dev'));
   app.use(removeHTTPHeader);
-  app.use(
-    '/static/images',
-    express.static(path.resolve(__dirname, '..', 'public', 'images')),
-  );
+  // app.use(
+  //   '/static/images',
+  //   express.static(path.resolve(__dirname, '..', 'public', 'images')),
+  // );
+  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 };
 
 module.exports = serverConfig;
