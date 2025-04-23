@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from 'react';
 
-import { Routes, Route, BrowserRouter } from 'react-router';
-
+import React, { useEffect } from 'react';
 // import AuthPage from './pages/Auth/AuthPage';
-import Root from './app/Root';
 import CustomOrderPage from './pages/CustomOrderPage/CustomOrderPage'
 // import UserApi from './entities/user/UserApi';
 import { setAccessToken } from './shared/lib/axiosInstance';
+
+import("./App.css");
+import { BrowserRouter, Routes, Route } from "react-router";
+import Root from "./app/Root";
+import AuthPage from "./pages/auth/AuthPage";
+import { useState } from "react";
+// import Mainpage from './pages/Mainpage/mainpage'
 
 
 function App() {
   const [user, setUser] = useState(null);
 
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Root user={user} setUser={setUser} />}>
-          {/* <Route index element={<MainPage />} /> */}
+        <Route path="/" element={<Root user={user} setUser={setUser} />}>
+          {/* <Route index element={<Mainpage user={user} />} /> */}
+          <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path='/customOrder' element={<CustomOrderPage />} />
-          {/* <Route path='/tasks' element={<TasksPage />} />
-          <Route path='/tasks/:id' element={<TaskDetailed />} />
-          <Route path='/auth' element={<AuthPage setUser={setUser} />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
@@ -29,3 +30,4 @@ function App() {
 }
 
 export default App;
+
