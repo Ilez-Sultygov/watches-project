@@ -39,7 +39,7 @@ export default function SignUpForm({ setUser }) {
       if (statusCode === 201) {
         setUser(data.user);
         setInputs(INITIAL_INPUTS_DATA);
-        navigate("/watches");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
