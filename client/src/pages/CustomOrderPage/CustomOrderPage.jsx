@@ -1,57 +1,63 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import React, { useState } from "react";
+import axios from "axios";
 
-export default function CustomOrderPage() {
-  const [custom,setCustom] = useState(null);
-  const { id } = useParams();
-  const navigate = useNavigate();
+export default function CustomOrderPage () {
+  const [phone, setPhone] = useState("");
+    const [file, setFile] = useState(null);
 
-  useEffect(() => {
-    axios(`/api/entries/${id}`).then(({ data }) => setEntry(data));
-  }, []);
-
-  const submitHandler = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`/api/entries/${entry.id}`, Object.fromEntries(new FormData(e.target)));
-    navigate('/entries');
+    if (!file || !phone) {
+      alert("Заполните номер и загрузите файл");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("phone", phone);
+    formData.append("image", file); 
+
+    try {
+      const res = await axios.post("/api/customOrder", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("Файл успешно загружен");
+    } catch (err) {
+      console.error(err);
+      alert("Ошибка загрузки");
+    }
   };
 
-  return entry ? (
-    <div>
-      <h1>Revise your thoughts on broccoli ...</h1>
-
-      <form onSubmit={submitHandler} id="editEntryForm">
-        <label htmlFor="title-input" className="block mar-b-1">
-          Title:
-          <input
-            id="title-input"
-            name="title"
-            type="text"
-            required="required"
-            className="block w-100 no-outline no-border pad-1 mar-b-2"
-            placeholder={entry.title}
-          />
-        </label>
-
-        <label htmlFor="body-textarea" className="block mar-b-1">
-          Body:
-          <textarea
-            id="body-textarea"
-            name="body"
-            className="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"
-            placeholder={entry.body}
-          />
-        </label>
-
+  return (
+    <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4 max-w-md mx-auto">
+      <div>
+        <label>Номер телефона:</label>
         <input
-          type="submit"
-          value="Update"
-          className="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline"
+          type="text"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+          className="border p-2 rounded w-full mt-1"
         />
-      </form>
-    </div>
-  ) : (
-    <h2>Loading</h2>
+      </div>
+
+      <div>
+        <label>Загрузите изображение:</label>
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={(e) => setFile(e.target.files[0])}
+          required
+          className="block mt-1"
+        />
+      </div>
+
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        Отправить
+      </button>
+    </form>
   );
-}
+};
+
+
