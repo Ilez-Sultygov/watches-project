@@ -19,6 +19,10 @@ module.exports = {
       img_url: {
         type: Sequelize.STRING,
       },
+      phone: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
