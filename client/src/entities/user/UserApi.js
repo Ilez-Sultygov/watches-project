@@ -1,28 +1,23 @@
+import { axiosInstance } from "../../shared/lib/axiosInstance";
+
 export default class UserApi {
+  static async refreshTokens() {
+    const { data } = await axiosInstance.get("/auth/refreshTokens");
+    return data;
+  }
+
   static async signUp(userData) {
-    const response = await fetch("/api/auth/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    return await response.json();
+    const { data } = await axiosInstance.post("/auth/signUp", userData);
+    return data;
   }
 
   static async signIn(userData) {
-    const response = await fetch("/api/auth/signIn", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    return await response.json();
+    const { data } = await axiosInstance.post("/auth/signIn", userData);
+    return data;
   }
 
   static async signOut() {
-    const response = await fetch("/api/auth/signOut");
-    return await response.json();
+    const { data } = await axiosInstance.get("/auth/signOut");
+    return data;
   }
 }

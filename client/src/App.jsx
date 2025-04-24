@@ -1,7 +1,7 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import CustomOrderPage from "./pages/CustomOrderPage/CustomOrderPage";
 import UserApi from "./entities/user/UserApi";
-// import { setAccessToken } from './shared/lib/axiosInstance';
+import { setAccessToken } from "./shared/lib/axiosInstance";
 
 import("./App.css");
 import { BrowserRouter, Routes, Route } from "react-router";
@@ -12,6 +12,23 @@ import Mainpage from "./pages/Mainpage/mainpage";
 
 function App() {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    UserApi.refreshTokens()
+      .then(({ error, data, statusCode }) => {
+        if (error) {
+          setUser(null);
+          return;
+        }
+        if (statusCode === 200) {
+          setUser(data.user);
+          setAccessToken(data.accessToken);
+        }
+      })
+      .catch(({ message }) => {
+        console.log(message);
+      });
+  }, []);
 
   return (
     <BrowserRouter>
