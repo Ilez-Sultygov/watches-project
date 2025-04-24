@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const multer  = require('multer');
-const CustomOrdersController = require("../controllers/customOrders.controller");
+const CustomOrdersController = require("../controllers/CustomOrders.controller");
 const { upload } = require('../middleware/upload')
 
 

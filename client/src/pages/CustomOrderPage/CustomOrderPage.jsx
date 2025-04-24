@@ -40,42 +40,42 @@ export default function CustomOrderPage() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit} encType="multipart/form-data" className="form">
-        <div className="form-group">
-          <label>Номер телефона:</label>
-          <input
-            type="text"
-            name="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            className="input"
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Загрузите изображение:</label>
-          <input
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={(e) => setFile(e.target.files[0])}
-            required
-            className="input-file"
-          />
-        </div>
-
-        <button type="submit" className="button">
-          Отправить
-        </button>
-      </form>
-
-      {imageUrl && (
-        <div className="preview">
-          <h3>Загруженное изображение:</h3>
-          <img src={`http://localhost:3000${imageUrl}`} alt="Загруженное изображение" className="preview-img" />
-        </div>
-      )}
+  <form onSubmit={handleSubmit} encType="multipart/form-data" className="form">
+    <div className="form-group">
+      <label>Номер телефона:</label>
+      <input
+        type="text"
+        name="phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        required
+        className="input"
+      />
     </div>
+
+    <div className="form-group">
+      <label>Загрузите изображение:</label>
+      <input
+        type="file"
+        name="image"
+        accept="image/*"
+        onChange={(e) => setFile(e.target.files[0])}
+        required
+        className="input-file"
+      />
+    </div>
+
+    <button type="submit" className="button">
+      Отправить заявку
+    </button>
+  </form>
+
+  {imageUrl && (
+    <div className="preview">
+      <h3>Загруженное изображение:</h3>
+      <img src={`http://localhost:3000${imageUrl}`} alt="Загруженное изображение" className="preview-img" />
+    </div>
+  )}
+</div>
   );
 }

@@ -13,10 +13,10 @@ const serverConfig = (app) => {
 
   app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-  app.use(
-    "/static/images",
-    express.static(path.resolve(__dirname, "..", "public", "images"))
-  );
+  // app.use(
+  //   "/static/images",
+  //   express.static(path.resolve(__dirname, "..", "public", "images"))
+  // );
 
 };
 
