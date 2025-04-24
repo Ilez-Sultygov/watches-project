@@ -1,4 +1,4 @@
-const { User } = require("../db/models/user");
+const { User } = require("../db/models");
 
 class UserService {
   static async getByEmail(email) {

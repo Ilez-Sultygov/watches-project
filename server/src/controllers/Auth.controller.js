@@ -1,7 +1,9 @@
 const UserService = require("../services/User.service");
 const AuthValidator = require("../utils/Auth.validator");
 const formatResponse = require("../utils/formatResponse");
+const cookiesConfig = require("../config/cookiesConfig");
 const bcrypt = require("bcrypt");
+const generateTokens = require("../utils/generateTokens");
 
 class AuthController {
   static async signUp(req, res) {
@@ -54,9 +56,17 @@ class AuthController {
       const plainUser = newUser.get({ plain: true });
       delete plainUser.password;
 
+      const { accessToken, refreshToken } = generateTokens({ user: plainUser });
+
       res
         .status(201)
-        .json(formatResponse(201, "SignUp Success", { user: plainUser }));
+        .cookie("refreshToken", refreshToken, cookiesConfig)
+        .json(
+          formatResponse(201, "SignUp Success", {
+            user: plainUser,
+            accessToken,
+          })
+        );
     } catch ({ message }) {
       console.error(message);
       res
@@ -103,9 +113,17 @@ class AuthController {
       const plainUser = user.get({ plain: true });
       delete plainUser.password;
 
+      const { accessToken, refreshToken } = generateTokens({ user: plainUser });
+
       res
         .status(200)
-        .json(formatResponse(200, "Log in success", { user: plainUser }));
+        .cookie("refreshToken", refreshToken, cookiesConfig)
+        .json(
+          formatResponse(200, "Log in success", {
+            user: plainUser,
+            accessToken,
+          })
+        );
     } catch ({ message }) {
       console.error(message);
       res
@@ -116,7 +134,10 @@ class AuthController {
 
   static async signOut(req, res) {
     try {
-      res.json(formatResponse(200, "Log out seccess"));
+      res
+        .status(200)
+        .clearCookie("refreshToken")
+        .json(formatResponse(200, "Log out seccess"));
     } catch ({ message }) {
       console.error(message);
       res
