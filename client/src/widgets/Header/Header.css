@@ -1,4 +1,13 @@
 .header {
   margin: auto;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+.header * {
+  /* color: aliceblue; */
+  font-weight: 700;
 }

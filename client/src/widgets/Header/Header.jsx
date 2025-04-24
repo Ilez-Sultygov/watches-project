@@ -25,6 +25,12 @@ export default function Header({ user, setUser }) {
 
   return (
     <header className="header">
+      <NavLink to="/">
+        {user ? `Привет, ${user.username}!` : "Привет, гость!"}
+        <br />
+        Статус:
+        {user && user.isAdmin ? " администратор" : " пользователь"}
+      </NavLink>
       <NavLink
         to="/"
         className={({ isActive }) =>
