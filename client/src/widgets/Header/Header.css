@@ -12,7 +12,7 @@
 
 .header {
   margin: auto;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -63,4 +63,12 @@
 .user-info,
 .user-status {
   text-align: left;
+}
+
+.user-info:hover {
+  color: blue;
+}
+
+.custom-page-link:hover {
+  color: blue;
 }

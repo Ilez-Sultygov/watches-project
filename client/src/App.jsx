@@ -10,6 +10,7 @@ import { useState } from "react";
 import Mainpage from "./pages/Mainpage/mainpage";
 import AdminProfilePage from "./pages/AdminProfilePage/AdminProfilePage";
 import WatchDetails from "./pages/Mainpage/WatchDetails";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,8 +39,12 @@ function App() {
           <Route index element={<Mainpage user={user} />} />
           <Route path="/watch/:id" element={<WatchDetails />} />
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
-          <Route path='/customOrder' element={<CustomOrderPage />} />
-          <Route path='/adminProfile' element={<AdminProfilePage />} />
+          <Route path="/customOrder" element={<CustomOrderPage />} />
+          <Route path="/adminProfile" element={<AdminProfilePage />} />
+          <Route
+            path="/userProfile"
+            element={<UserProfilePage user={user} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,25 @@
+div {
+  color: aliceblue;
+}
+
+.custom-data {
+  color: aliceblue;
+}
+
+.greeting {
+  font-size: 30px;
+  font-weight: 700;
+  color: papayawhip;
+}
+
+.order-data,
+.custom-data {
+  box-sizing: border-box;
+  background-color: azure;
+  width: 400px;
+  color: navy;
+  margin: 0.5em auto;
+  text-align: left;
+  border-radius: 0.4em;
+  padding-left: 2em;
+}

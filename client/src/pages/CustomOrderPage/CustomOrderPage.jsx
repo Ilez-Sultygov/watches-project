@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import './CustomOrderPage.css'
+import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 export default function CustomOrderPage() {
   const [phone, setPhone] = useState("");
@@ -22,7 +22,7 @@ export default function CustomOrderPage() {
 
 
     try {
-      const res = await axios.post("/api/customOrder", formData, {
+      const res = await axiosInstance.post("/customOrder", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
     //   console.log(res.data)

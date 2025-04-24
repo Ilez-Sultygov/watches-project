@@ -10,6 +10,10 @@ class CustomOrdersService {
     return await CustomOrder.create(data);
   }
 
+  static async getAll(user_id) {
+    return await CustomOrder.findAll({where: {user_id}})
+  }
+
   // static async getById(id) {
   //   return await CustomOrders.findByPk(id);
   // }
