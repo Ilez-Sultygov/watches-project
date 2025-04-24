@@ -1,8 +1,8 @@
 
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import CustomOrderPage from './pages/CustomOrderPage/CustomOrderPage'
 import UserApi from './entities/user/UserApi';
-import { setAccessToken } from './shared/lib/axiosInstance';
+// import { setAccessToken } from './shared/lib/axiosInstance';
 
 // import("./App.css");
 import { BrowserRouter, Routes, Route } from "react-router";
