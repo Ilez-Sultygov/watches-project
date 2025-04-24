@@ -1,4 +1,4 @@
-const { Watch } = require("../db/models");
+const { Watch } = require('../db/models');
 
 class WatchService {
   //* Получить все задачи
