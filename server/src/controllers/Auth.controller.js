@@ -145,6 +145,25 @@ class AuthController {
         .json(formatResponse(500, "internal server error", null, message));
     }
   }
+
+  static async refreshTokens(req, res) {
+    try {
+      const { user } = res.locals;
+      const { accessToken, refreshToken } = generateTokens({ user });
+
+      res.status(200).cookie("refreshToken", refreshToken, cookiesConfig).json(
+        formatResponse(200, "successful token regeneration", {
+          user,
+          accessToken,
+        })
+      );
+    } catch ({ message }) {
+      console.error(message);
+      res
+        .status(500)
+        .json(formatResponse(500, "internal server error", null, message));
+    }
+  }
 }
 
 module.exports = AuthController;

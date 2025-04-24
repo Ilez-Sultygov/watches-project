@@ -1,4 +1,4 @@
-const { Watch } = require('../db/models/watch');
+const { Watch } = require("../db/models");
 
 class WatchService {
   //* Получить все задачи
@@ -32,7 +32,7 @@ class WatchService {
     const watch = await this.getById(id);
     if (watch) {
       if (watch.authorId !== userId) {
-        throw new Error('Unauthorized: Only the author can delete this watch');
+        throw new Error("Unauthorized: Only the author can delete this watch");
       }
       await watch.destroy();
     }

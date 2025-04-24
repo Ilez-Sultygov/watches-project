@@ -2,7 +2,7 @@ const Watch = require('../db/models/watch');
 
 exports.getAllWatches = async (req, res) => {
   try {
-    const watches = await Watch.find();
+    const watches = await Watch.getAll();
     res.status(200).json(watches);
   } catch (error) {
     res.status(500).json({ message: error.message });
