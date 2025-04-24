@@ -1,4 +1,4 @@
-const CustomOrdersService = require('../services/customOrders.service');
+const CustomOrdersService = require('../services/CustomOrders.service');
 // const UserService = require('../services/user.service');
 const formatResponse = require('../utils/formatResponse');
 
