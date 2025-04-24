@@ -14,6 +14,7 @@ export default function Header({ user, setUser }) {
         setAccessToken("");
         navigate("/");
       } else {
+        // console.log(response.data.error);
         alert(response.error || "Ошибка при выходе");
       }
     } catch (error) {
