@@ -10,10 +10,14 @@ const serverConfig = (app) => {
   app.use(morgan("dev"));
   app.use(cookieParser());
   app.use(removeHTTPHeader);
+
+  app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+
   app.use(
     "/static/images",
     express.static(path.resolve(__dirname, "..", "public", "images"))
   );
+
 };
 
 module.exports = serverConfig;
