@@ -12,7 +12,7 @@ module.exports = {
           password:
             "$2b$10$lpO6k7Xgaeoeejayq2X3t.sCdENlFvt1DpoiSzXHXqykriguOFfD.",
 
-          isAdmin: false,
+          isAdmin: true,
         },
         {
           username: "Денис О.",

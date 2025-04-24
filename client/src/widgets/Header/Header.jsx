@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router";
 import UserApi from "../../entities/user/UserApi";
 import "./Header.css";
+import { setAccessToken } from "../../shared/lib/axiosInstance";
 
 export default function Header({ user, setUser }) {
   const navigate = useNavigate();
@@ -10,8 +11,10 @@ export default function Header({ user, setUser }) {
       const response = await UserApi.signOut();
       if (response.statusCode === 200) {
         setUser(null);
+        setAccessToken("");
         navigate("/");
       } else {
+        // console.log(response.data.error);
         alert(response.error || "Ошибка при выходе");
       }
     } catch (error) {

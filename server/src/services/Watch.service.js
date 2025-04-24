@@ -32,7 +32,7 @@ class WatchService {
     const watch = await this.getById(id);
     if (watch) {
       if (watch.authorId !== userId) {
-        throw new Error('Unauthorized: Only the author can delete this watch');
+        throw new Error("Unauthorized: Only the author can delete this watch");
       }
       await watch.destroy();
     }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UserValidator from "../../../entities/user/User.validator";
 import UserApi from "../../../entities/user/UserApi";
 import { useNavigate } from "react-router";
+import { setAccessToken } from "../../../shared/lib/axiosInstance";
 
 const INITIAL_INPUTS_DATA = {
   email: "",
@@ -36,6 +37,7 @@ export default function SignInForm({ setUser }) {
 
       if (statusCode === 200) {
         setUser(data.user);
+        setAccessToken(data.accessToken);
         setInputs(INITIAL_INPUTS_DATA);
         navigate("/");
       }
