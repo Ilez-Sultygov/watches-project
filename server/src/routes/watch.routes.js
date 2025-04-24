@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const WatchController = require('../controllers/Watch.controller');
+const adminOnly = require('../middleware/adminOnly')
 // const verifyAccessToken = require('../middleware/verifyAccessToken');
 
 router
@@ -10,7 +11,7 @@ router
   .get('/:id', WatchController.getWatchById)
 
   //* Метод POST - создать задачу (запустит функцию контроллер для создания новой задачи)
-  .post('/', WatchController.createWatch)
+  .post('/', adminOnly, WatchController.createWatch)
 
   //* Метод PUT - обновить задачу (запустит функцию контроллер для обновления задачи по id)
   .put('/:id', WatchController.updateWatch)

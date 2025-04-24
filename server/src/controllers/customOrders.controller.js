@@ -6,7 +6,7 @@ class CustomOrdersController {
   static async CustomOrder(req, res) {
     const { phone } = req.body;
     const file = req.file;
-    // const {user}=res.locals
+    const {user}=res.locals
 
     if (!phone || !file) {
       return res.status(400).json({ message: "Image and phone are required" });
@@ -16,7 +16,8 @@ class CustomOrdersController {
       const imageUrl = `/uploads/${file.filename}`;
 
       const newCustomOrder = await CustomOrdersService.create({
-        user_id: 1, // Не забудь позже заменить на реального пользователя
+        user_id:user.id,
+        // user_id: 1, // Не забудь позже заменить на реального пользователя
         img_url: imageUrl,
         phone
       });

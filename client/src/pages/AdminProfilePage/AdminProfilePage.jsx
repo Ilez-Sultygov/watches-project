@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AdminProfilePage.css";
+import { axiosInstance } from "../../shared/lib/axiosInstance";
+
 
 export default function AdminProfilePage() {
   const [model, setModel] = useState("");
@@ -25,7 +27,7 @@ export default function AdminProfilePage() {
     formData.append("price", price);
 
     try {
-      const res = await axios.post("/api/adminProfile", formData, {
+      const res = await axiosInstance.post("/adminProfile", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       //   console.log(res.data)
@@ -105,7 +107,7 @@ export default function AdminProfilePage() {
         <div className="preview">
           <h3>Загруженное изображение:</h3>
           <img
-            src={`http://localhost:3000${imageAd}`}
+            src={`http://localhost:3000/uploadsAdmin/${imageAd}`}
             alt="Загруженное изображение"
             className="preview-img"
           />

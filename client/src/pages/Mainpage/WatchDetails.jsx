@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './WatchDetails.css';
+import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 const WatchDetails = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const WatchDetails = () => {
   useEffect(() => {
     const fetchWatchDetails = async () => {
       try {
-        const { data } = await axios.get(`/api/watch/${id}`);
+        const { data } = await axiosInstance.get(`/watch/${id}`);
         setWatch(data);
       } catch (err) {
         setError(err.response?.data?.message || 'Ошибка загрузки данных');
@@ -33,7 +34,7 @@ const WatchDetails = () => {
       <div className="watch-details">
         <div className="watch-image-container">
           <img 
-            src={`http://localhost:3000/static/images/${watch.img}`} 
+            src={`http://localhost:3000/uploadsAdmin/${watch.img}`} 
             alt={watch.model} 
             className="watch-details-image" 
           />

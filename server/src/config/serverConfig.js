@@ -19,11 +19,14 @@ const serverConfig = (app) => {
   app.use(cors(corsOptions));
 
   app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
+  app.use("/uploadsAdmin", express.static(path.join(__dirname, "..", "uploadsAdmin")));
 
-  app.use(
-    "/static/images",
-    express.static(path.resolve(__dirname, "..", "public", "images"))
-  );
+// app.use(express.static(path.join(__dirname, "..", "uploadsAdmin")))
+
+  // app.use(
+  //   "/static/images",
+  //   express.static(path.resolve(__dirname, "..", "public", "images"))
+  // );
 };
 
 module.exports = serverConfig;

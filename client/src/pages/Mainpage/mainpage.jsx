@@ -4,11 +4,13 @@ import axios from 'axios'
 import { Link } from 'react-router';
 
 const WatchCard = ({ watch }) => {
+  console.log(watch.img);
+  
   return (
     <div className="watch-card">
-      <img src={`http://localhost:3000/static/images/${watch.img}`} alt={watch.model} className="watch-image" />
+      <img src={`http://localhost:3000/uploadsAdmin/${watch.img}`} alt={watch.model} className="watch-image" />
+      
       <h3>{watch.model}</h3>
-      <p>{watch.description}</p>
       <p className="price">${watch.price}</p>
       <Link to={`/watch/${watch.id}`} className="details-button">
         Подробнее
