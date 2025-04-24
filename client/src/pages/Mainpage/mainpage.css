@@ -1,112 +1,102 @@
 .catalog-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.watch-catalog {
-  max-width: 100%;
-  width: 100%;
-  margin: 0 1em;
-  padding: 20px;
-  text-align: center;
-}
-
-.watch-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 30px;
-  justify-items: center;
-}
-
-.watch-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  width: 100%;
-  max-width: 350px;
-  box-sizing: border-box;
-}
-
-.watch-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.watch-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.watch-card h3 {
-  margin: 10px 0;
-  font-size: 1.4rem;
-}
-
-.watch-card p {
-  margin: 8px 0;
-  color: #555;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 1.3em;
-  color: #222;
-  margin: 15px 0;
-}
-
-.buy-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-  width: 100%;
-}
-
-.buy-button:hover {
-  background-color: #0056b3;
-}
-
-.status-message {
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.status-message.error {
-  background-color: #ffebee;
-  color: #d32f2f;
-  border: 1px solid #ef9a9a;
-}
-
-.status-message.success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
-}
-
-/* Дополнения к существующим стилям */
-.watch-card {
-  position: relative;
-}
-
-.buy-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-@media screen {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
   
-}
+  .watch-catalog {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+    margin-top: 30px;
+    justify-items: center;
+  }
+  
+  .watch-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+  
+  .watch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .watch-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .watch-card h3 {
+    margin: 10px 0;
+    font-size: 1.4rem;
+  }
+  
+  .watch-card p {
+    margin: 8px 0;
+    color: #555;
+  }
+  
+  .price {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #222;
+    margin: 15px 0;
+  }
+  
+  .buy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .buy-button:hover {
+    background-color: #0056b3;
+  }
+
+  .status-message {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .status-message.error {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+  }
+  
+  .status-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+  }
+  
+  /* Дополнения к существующим стилям */
+  .watch-card {
+    position: relative;
+  }
