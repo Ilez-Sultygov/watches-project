@@ -1,15 +1,16 @@
-
-import React, { useEffect, useState } from 'react';
-import './mainpage.css';
-import axios from 'axios'
-import path from 'path'
-
-
+import React, { useEffect, useState } from "react";
+import "./mainpage.css";
+import axios from "axios";
+import path from "path";
 
 const WatchCard = ({ watch }) => {
   return (
     <div className="watch-card">
-      <img src={`http://localhost:3000/${watch.image}`} alt={watch.name} className="watch-image" />
+      <img
+        src={`http://localhost:3000/static/images/${watch.img}`}
+        alt={watch.name}
+        className="watch-image"
+      />
       <h3>{watch.name}</h3>
       <p>{watch.description}</p>
       <p className="price">${watch.price}</p>
@@ -50,28 +51,26 @@ export const WatchCatalog = () => {
   //   }
   // ];
 
-  const [watches, setWatches] = useState([])
+  const [watches, setWatches] = useState([]);
 
-  useEffect (() => {
+  useEffect(() => {
     async function getData() {
       try {
-        const {data} = await axios.get('/api/watch')
-        setWatches(data)
-      }
-      catch(error) {
-        console.log(error)
+        const { data } = await axios.get("/api/watch");
+        setWatches(data);
+      } catch (error) {
+        console.log(error);
       }
     }
-    getData()
-  }, [])
-
+    getData();
+  }, []);
 
   return (
     <div className="catalog-container">
       <div className="watch-catalog">
         <h2>Каталог часов</h2>
         <div className="watch-grid">
-          {watches.map(watch => (
+          {watches.map((watch) => (
             <WatchCard key={watch.id} watch={watch} />
           ))}
         </div>
