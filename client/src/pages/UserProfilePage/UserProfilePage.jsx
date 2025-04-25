@@ -34,7 +34,7 @@ export default function UserProfilePage({ user }) {
     }
     getOrders();
     getCustomOrders();
-  }, []);
+  }, [id]);
 
   console.log("orders ==>", orders);
   console.log("custom orders ==>", customOrders);

@@ -46,6 +46,18 @@ export default function Header({ user, setUser }) {
             {user && user.isAdmin ? " администратор" : " пользователь"}
           </div>
         </div>
+        {user && user.isAdmin ? (
+          <div
+            className="cms"
+            onClick={() => {
+              navigate("/adminProfile");
+            }}
+          >
+            Управление
+          </div>
+        ) : (
+          ""
+        )}
         <div
           className="custom-page-link"
           onClick={() => {
