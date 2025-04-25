@@ -1,0 +1,113 @@
+.watch-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .watch-details {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+  }
+  
+  .watch-image-container-ok {
+    flex: 1;
+    height: 600px;
+  }
+  
+  .watch-details-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .watch-info {
+    flex: 1;
+  }
+  
+  .watch-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 15px 0;
+  }
+  
+  .watch-specs {
+    margin: 30px 0;
+  }
+  
+  .watch-specs ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .watch-specs li {
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .watch-description {
+    margin: 30px 0;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  .back-button {
+    flex: 1;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .error {
+    color: #d32f2f;
+  }
+  
+  @media (max-width: 768px) {
+    .watch-details {
+      flex-direction: column;
+    }
+    
+    .watch-details-image {
+      max-width: 100%;
+    }
+  }
+
+  .watch-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .order-button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1;
+  }
+  
+  .order-button:hover {
+    background-color: #1b5e20;
+  }
