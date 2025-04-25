@@ -34,15 +34,38 @@ export default function Header({ user, setUser }) {
         </div>
       </div>
       <div className="navbar">
-        <NavLink to="/">
-          <div className="user-info">
-            {user ? `Привет, ${user.username}!` : "Привет, гость!"}
-          </div>
+        <div
+          className="user-profile"
+          onClick={() => {
+            user ? navigate("/userProfile") : alert("Требуется авторизация!");
+          }}
+        >
+          <div className="user-info">{user ? `${user.username}` : "Гость"}</div>
           <div className="user-status">
             Статус:
             {user && user.isAdmin ? " администратор" : " пользователь"}
           </div>
-        </NavLink>
+        </div>
+        {user && user.isAdmin ? (
+          <div
+            className="cms"
+            onClick={() => {
+              navigate("/adminProfile");
+            }}
+          >
+            Управление
+          </div>
+        ) : (
+          ""
+        )}
+        <div
+          className="custom-page-link"
+          onClick={() => {
+            user ? navigate("/customOrder") : alert("Требуется авторизация!");
+          }}
+        >
+          Предложить свой эскиз
+        </div>
         <NavLink
           to="/"
           className={({ isActive }) =>
