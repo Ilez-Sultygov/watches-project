@@ -5,8 +5,8 @@ import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 const WatchDetails = ({ user }) => {
   const { id } = useParams();
-  console.log("==>", id);
-  console.log("----->", user.id);
+  // console.log("==>", id);
+  // console.log("----->", user.id);
   const navigate = useNavigate();
   const [watch, setWatch] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,25 +26,6 @@ const WatchDetails = ({ user }) => {
 
     fetchWatchDetails();
   }, [id]);
-
-  // async function handleOrder() {
-  //   const orderData = {
-  //     watch_id: id,
-  //     user_id: user.id,
-  //   };
-  //   try {
-  //     await axiosInstance.post("orders/addNew", orderData);
-  //     navigate("/order-confirmation", {
-  //       state: {
-  //         watchModel: watch.model,
-  //         watchPrice: watch.price,
-  //         watchImage: watch.img,
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   if (loading) return <div className="loading">Загрузка...</div>;
   if (error) return <div className="error">Ошибка: {error}</div>;
