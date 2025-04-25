@@ -55,7 +55,8 @@ export default function UserProfilePage({ user }) {
       <div className="orders-list">
         {orders.map((order, index) => (
           <div key={order.id} className="order-data">
-            {index + 1}. Код заказа: {order.id}
+            {index + 1}. Код заказа: {order.id} | Модель: {order.Watch.model} |
+            Цена: ${order.Watch.price} | Артикул: {order.Watch.id}
           </div>
         ))}
       </div>
@@ -68,7 +69,10 @@ export default function UserProfilePage({ user }) {
       <div className="custom-orders-list">
         {customOrders.map((customOrder, index) => (
           <div key={customOrder.id} className="custom-data">
-            {index + 1}. Код заказа: {customOrder.id}
+            {index + 1}. Код заказа: {customOrder.id}{" "}
+            {customOrder.phone
+              ? `Телефон, который вы указали: ${customOrder.phone}`
+              : "Вы не указали телефон для связи!"}
           </div>
         ))}
       </div>
