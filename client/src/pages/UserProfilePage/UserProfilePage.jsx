@@ -4,7 +4,8 @@ import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 export default function UserProfilePage({ user }) {
   let userName = "";
-  const id = user.id;
+  const [id, setId] = useState(null);
+
   console.log(user);
   if (user) {
     userName = user.username;
@@ -17,6 +18,7 @@ export default function UserProfilePage({ user }) {
 
   useEffect(() => {
     async function getOrders() {
+      setId(user.id);
       try {
         const { data } = await axiosInstance.get(`orders/userOrders/${id}`);
         setOrders(data);
@@ -25,6 +27,7 @@ export default function UserProfilePage({ user }) {
       }
     }
     async function getCustomOrders() {
+      setId(user.id);
       try {
         const { data } = await axiosInstance.get(`/userCustomOrders/${id}`);
         setCustomOrders(data);
@@ -34,7 +37,7 @@ export default function UserProfilePage({ user }) {
     }
     getOrders();
     getCustomOrders();
-  }, [id]);
+  }, [id, user]);
 
   console.log("orders ==>", orders);
   console.log("custom orders ==>", customOrders);
