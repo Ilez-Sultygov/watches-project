@@ -34,7 +34,7 @@ const WatchDetails = ({ user }) => {
   return (
     <div className="watch-details-container">
       <div className="watch-details">
-        <div className="watch-image-container">
+        <div className="watch-image-container-ok">
           <img
             src={`http://localhost:3000/uploadsAdmin/${watch.img}`}
             alt={watch.model}
