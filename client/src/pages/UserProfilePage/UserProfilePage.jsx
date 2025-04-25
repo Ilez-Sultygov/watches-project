@@ -69,7 +69,7 @@ export default function UserProfilePage({ user }) {
       <div className="custom-orders-list">
         {customOrders.map((customOrder, index) => (
           <div key={customOrder.id} className="custom-data">
-            {index + 1}. Код заказа: {customOrder.id}{" "}
+            {index + 1}. Код заказа: {customOrder.id} |{" "}
             {customOrder.phone
               ? `Телефон, который вы указали: ${customOrder.phone}`
               : "Вы не указали телефон для связи!"}
