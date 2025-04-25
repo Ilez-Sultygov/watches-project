@@ -6,10 +6,16 @@ div {
   color: aliceblue;
 }
 
+.user-profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .greeting {
   font-size: 30px;
   font-weight: 700;
   color: papayawhip;
+  margin-bottom: 1em;
 }
 
 .order-data,
