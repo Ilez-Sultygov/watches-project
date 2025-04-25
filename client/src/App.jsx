@@ -10,6 +10,7 @@ import { useState } from "react";
 import Mainpage from "./pages/Mainpage/mainpage";
 import AdminProfilePage from "./pages/AdminProfilePage/AdminProfilePage";
 import WatchDetails from "./pages/Mainpage/WatchDetails";
+import OrderConfirmation from './pages/Mainpage/OrderConfirmation';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,8 @@ function App() {
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path='/customOrder' element={<CustomOrderPage />} />
           <Route path='/adminProfile' element={<AdminProfilePage />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} 
+        />
         </Route>
       </Routes>
     </BrowserRouter>

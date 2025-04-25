@@ -8,11 +8,10 @@ const WatchCard = ({ watch }) => {
     <div className="watch-card">
       <img src={`http://localhost:3000/static/images/${watch.img}`} alt={watch.model} className="watch-image" />
       <h3>{watch.model}</h3>
-      <p>{watch.description}</p>
       <p className="price">${watch.price}</p>
-      <Link to={`/watch/${watch.id}`} className="details-button">
+     <button className='order-button'><Link to={`/watch/${watch.id}`} className="details-button">
         Подробнее
-      </Link>
+      </Link></button>
     </div>
   );
 };
