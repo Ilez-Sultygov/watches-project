@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import './CustomOrderPage.css'
 import { axiosInstance } from "../../shared/lib/axiosInstance";
 

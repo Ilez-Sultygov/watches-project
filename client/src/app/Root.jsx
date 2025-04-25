@@ -1,13 +1,13 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import Header from '../widgets/Header/Header';
-import Footer from '../widgets/Footer/Footer';
+import React from "react";
+import { Outlet } from "react-router";
+import Header from "../widgets/Header/Header";
+import Footer from "../widgets/Footer/Footer";
 
 export default function Root({ user, setUser }) {
   return (
-    <div className='app'>
+    <div className="app">
       <Header user={user} setUser={setUser} />
-      <main className='main'>
+      <main className="main">
         <Outlet />
       </main>
       <Footer />

@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import './mainpage.css';
-import axios from 'axios'
-import { Link } from 'react-router';
+import React, { useEffect, useState } from "react";
+import "./mainpage.css";
+import axios from "axios";
+import { Link } from "react-router";
 
 const WatchCard = ({ watch }) => {
   console.log(watch.img);
   
   return (
     <div className="watch-card">
+
       <img src={`http://localhost:3000/uploadsAdmin/${watch.img}`} alt={watch.model} className="watch-image" />
-      
       <h3>{watch.model}</h3>
       <p className="price">${watch.price}</p>
-      <Link to={`/watch/${watch.id}`} className="details-button">
+     <button className='order-button'><Link to={`/watch/${watch.id}`} className="details-button">
         Подробнее
-      </Link>
+      </Link></button>
     </div>
   );
 };
 
 export const WatchCatalog = () => {
-  const [watches, setWatches] = useState([])
+  const [watches, setWatches] = useState([]);
   useEffect(() => {
     async function getData() {
       try {

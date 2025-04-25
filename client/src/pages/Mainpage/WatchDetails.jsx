@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './WatchDetails.css';
 import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 const WatchDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [watch, setWatch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +25,16 @@ const WatchDetails = () => {
 
     fetchWatchDetails();
   }, [id]);
+
+  const handleOrder = () => {
+    navigate('/order-confirmation', {
+      state: { 
+        watchModel: watch.model,
+        watchPrice: watch.price,
+        watchImage: watch.img
+      }
+    });
+  };
 
   if (loading) return <div className="loading">Загрузка...</div>;
   if (error) return <div className="error">Ошибка: {error}</div>;
@@ -59,9 +70,14 @@ const WatchDetails = () => {
             <p>{watch.description || 'Описание отсутствует'}</p>
           </div>
 
-          <button className="back-button" onClick={() => window.history.back()}>
-            Вернуться в каталог
-          </button>
+          <div className="watch-actions">
+            <button className="back-button" onClick={() => window.history.back()}>
+              Вернуться в каталог
+            </button>
+            <button className="order-button" onClick={handleOrder}>
+              Заказать
+            </button>
+          </div>
         </div>
       </div>
     </div>

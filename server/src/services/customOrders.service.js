@@ -1,13 +1,14 @@
 const { CustomOrder } = require("../db/models");
 
-
-
 class CustomOrdersService {
-
   static async create(data) {
     console.log(data);
-    
+
     return await CustomOrder.create(data);
+  }
+
+  static async getAll(user_id) {
+    return await CustomOrder.findAll({ where: { user_id } });
   }
 
   // static async getById(id) {
