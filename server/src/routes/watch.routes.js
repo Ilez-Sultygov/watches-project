@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const WatchController = require('../controllers/Watch.controller');
-const adminOnly = require('../middleware/adminOnly')
+const AdminWatchController = require('../controllers/AdminWatch.controller');
+const isAdmin = require('../middleware/isAdmin')
+
 // const verifyAccessToken = require('../middleware/verifyAccessToken');
 
 router
@@ -11,12 +13,12 @@ router
   .get('/:id', WatchController.getWatchById)
 
   //* Метод POST - создать задачу (запустит функцию контроллер для создания новой задачи)
-  .post('/', adminOnly, WatchController.createWatch)
+  .post('/', isAdmin, WatchController.createWatch)
 
   //* Метод PUT - обновить задачу (запустит функцию контроллер для обновления задачи по id)
   .put('/:id', WatchController.updateWatch)
 
   //* Метод DELETE - удалить задачу (запустит функцию контроллер для удаления задачи по id)
-  .delete('/:id', WatchController.deleteWatch);
+  .delete('/:id',isAdmin, AdminWatchController.AdminDelete);
 
 module.exports = router;

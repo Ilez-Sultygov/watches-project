@@ -4,7 +4,7 @@ import "./AdminProfilePage.css";
 import { axiosInstance } from "../../shared/lib/axiosInstance";
 
 
-export default function AdminProfilePage() {
+export default function AdminProfilePage({ user }) {
   const [model, setModel] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -12,6 +12,9 @@ export default function AdminProfilePage() {
   const [imageAd, setImageAd] = useState("");
 
   //   console.log(imageAd);
+
+  // const user = JSON.parse(localStorage.getItem("user")); 
+  // const isAdmin = user?.isAdmin;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,8 +46,14 @@ export default function AdminProfilePage() {
     }
   };
 
+
+
   return (
-    <div className="container">
+    <>
+      {/* {user.isAdmin && (
+        <button>КНОПКА</button>
+      )} */}
+      <div className="container">
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
@@ -113,6 +122,8 @@ export default function AdminProfilePage() {
           />
         </div>
       )}
-    </div>
+      </div>
+    
+      </>
   );
 }

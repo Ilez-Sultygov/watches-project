@@ -1,4 +1,4 @@
-const { Watch } = require('../db/models');
+const { Watch } = require("../db/models");
 
 class WatchService {
   //* Получить все задачи
@@ -28,15 +28,25 @@ class WatchService {
   }
 
   //* Удалить задачу по ID
-  static async delete(id, userId) {
+  // static async delete(id, user) {
+  //   const watch = await this.getById(id);
+  //   if (watch) {
+  //     if (!user.isAdmin) {
+  //       throw new Error("Unauthorized: Only the admin can delete this watch");
+  //     }
+  //     await watch.destroy();
+  //   }
+  //   return watch; //* Возвращаем удалённый объект или null
+  // }
+
+  static async delete(id) {
     const watch = await this.getById(id);
-    if (watch) {
-      if (watch.authorId !== userId) {
-        throw new Error("Unauthorized: Only the author can delete this watch");
-      }
-      await watch.destroy();
+    if (!watch) {
+      throw new Error("Unauthorized: Only the admin can delete this watch");
     }
-    return watch; //* Возвращаем удалённый объект или null
+
+    await watch.destroy();
+    return watch;
   }
 }
 

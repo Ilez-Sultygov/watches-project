@@ -39,7 +39,7 @@ function App() {
           <Route path="/watch/:id" element={<WatchDetails />} />
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route path='/customOrder' element={<CustomOrderPage />} />
-          <Route path='/adminProfile' element={<AdminProfilePage />} />
+          <Route path='/adminProfile' element={<AdminProfilePage  user={user}/>} />
         </Route>
       </Routes>
     </BrowserRouter>
