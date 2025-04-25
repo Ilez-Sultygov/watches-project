@@ -16,7 +16,7 @@ class CustomOrdersController {
     }
 
     try {
-      const imageUrl = `/uploads/${file.filename}`;
+      const imageUrl = `${file.filename}`;
 
       const newCustomOrder = await CustomOrdersService.create({
         user_id: user.id, // Не забудь позже заменить на реального пользователя
