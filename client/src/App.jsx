@@ -45,8 +45,9 @@ function App() {
             path="/userProfile"
             element={<UserProfilePage user={user} />}/>
           <Route path='/customOrder' element={<CustomOrderPage />} />
-          <Route path='/adminProfile' element={<AdminProfilePage />} />
+          <Route path='/adminProfile' element={<AdminProfilePage  user={user}/>} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

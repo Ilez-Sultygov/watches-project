@@ -6,7 +6,10 @@ class CustomOrdersController {
   static async CustomOrder(req, res) {
     const { phone } = req.body;
     const file = req.file;
+
+
     const { user } = res.locals;
+
 
     if (!phone || !file) {
       return res.status(400).json({ message: "Image and phone are required" });

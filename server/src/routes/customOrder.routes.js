@@ -11,4 +11,5 @@ router.post(
 );
 router.get("/userCustomOrders/:id", CustomOrdersController.getCustomOrders);
 
+router.post('/customOrder',verifyAccessToken, upload.single('image'), CustomOrdersController.CustomOrder) 
 module.exports = router;
