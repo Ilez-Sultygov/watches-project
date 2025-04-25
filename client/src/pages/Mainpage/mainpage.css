@@ -50,13 +50,13 @@
   
   .watch-card p {
     margin: 8px 0;
-    color: #555;
+    color: #ffffff;
   }
   
   .price {
     font-weight: bold;
     font-size: 1.3em;
-    color: #222;
+    color: #4a0000;
     margin: 15px 0;
   }
   
@@ -99,4 +99,26 @@
   /* Дополнения к существующим стилям */
   .watch-card {
     position: relative;
+  }
+
+  .order-button {
+    background-color: #2e7d32;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1;
+  }
+
+  .order-button:hover {
+    background-color: #1b5e20;
+  }
+
+  .order-button a {
+    color: white;
+  }
+  .order-button a:hover {
+    color: white;
   }
