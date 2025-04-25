@@ -64,13 +64,13 @@ a {
 }
 
 .user-info:hover,
-.cms:hover {
-  color: blue;
+.cms:hover,
+.ok:hover,
+.custom-page-link:hover {
+  color: rgb(221, 219, 106);
+  cursor: pointer;
 }
 
-.custom-page-link:hover {
-  color: blue;
-}
 
 .ok {
   color: white;

@@ -10,8 +10,9 @@
     margin-top: 30px;
   }
   
-  .watch-image-container {
+  .watch-image-container-ok {
     flex: 1;
+    height: 600px;
   }
   
   .watch-details-image {
