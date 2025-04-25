@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Root user={user} setUser={setUser} />}>
           <Route index element={<Mainpage user={user} />} />
-          <Route path="/watch/:id" element={<WatchDetails />} />
+          <Route path="/watch/:id" element={<WatchDetails user={user}/>} />
           <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           <Route
             path="/userProfile"

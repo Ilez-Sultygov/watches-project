@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router";
 
 const WatchCard = ({ watch }) => {
-  console.log(watch.img);
   
   return (
     <div className="watch-card">
