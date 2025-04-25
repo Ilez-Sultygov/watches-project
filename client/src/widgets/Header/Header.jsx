@@ -68,14 +68,12 @@ export default function Header({ user, setUser }) {
         </div>  
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            `header__link ${isActive ? "header__link--active" : ""}`
-          }
+          className='ok'
         >
           Главная
         </NavLink>
         {user ? (
-          <button onClick={handleSignOut}>Выйти</button>
+          <button className="btn-logout" onClick={handleSignOut}>Выйти</button>
         ) : (
           <NavLink to="/auth">Войти</NavLink>
         )}
