@@ -19,12 +19,6 @@ const WatchCard = ({ setWatches, watch, user }) => {
       console.log(error);
     }
   }
-
-<<<<<<< HEAD
-const WatchCard = ({ watch }) => {
-  
-=======
->>>>>>> dev
   return (
     <div className="watch-card">
       <img
@@ -87,4 +81,5 @@ export const WatchCatalog = ({ user }) => {
     </div>
   );
 };
+
 export default WatchCatalog;
