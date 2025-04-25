@@ -1,4 +1,4 @@
-const { Order, Watch, User } = require("../db/models");
+const { Order, Watch } = require("../db/models");
 
 class OrderService {
   static async getAllByUserId(user_id) {
@@ -9,6 +9,9 @@ class OrderService {
         attributes: ["id", "model", "price"],
       },
     });
+  }
+  static async createNew(data) {
+    return await Order.create(data)
   }
 }
 
