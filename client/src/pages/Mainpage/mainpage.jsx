@@ -13,9 +13,9 @@ const WatchCard = ({ watch }) => {
       />
       <h3>{watch.model}</h3>
       <p className="price">${watch.price}</p>
-      <Link to={`/watch/${watch.id}`} className="details-button">
+     <button className='order-button'><Link to={`/watch/${watch.id}`} className="details-button">
         Подробнее
-      </Link>
+      </Link></button>
     </div>
   );
 };

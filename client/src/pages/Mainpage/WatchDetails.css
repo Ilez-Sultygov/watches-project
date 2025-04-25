@@ -16,7 +16,7 @@
   
   .watch-details-image {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -28,7 +28,7 @@
   .watch-price {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
     margin: 15px 0;
   }
   
@@ -50,9 +50,11 @@
   .watch-description {
     margin: 30px 0;
     line-height: 1.6;
+    text-align: justify;
   }
   
   .back-button {
+    flex: 1;
     background-color: #f0f0f0;
     color: #333;
     border: none;
@@ -85,4 +87,26 @@
     .watch-details-image {
       max-width: 100%;
     }
+  }
+
+  .watch-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .order-button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1;
+  }
+  
+  .order-button:hover {
+    background-color: #1b5e20;
   }
