@@ -73,7 +73,7 @@ export default function CustomOrderPage() {
   {imageUrl && (
     <div className="preview">
       <h3>Загруженное изображение:</h3>
-      <img src={`http://localhost:3000${imageUrl}`} alt="Загруженное изображение" className="preview-img" />
+      <img src={`http://localhost:3000/uploads/${imageUrl}`} alt="Загруженное изображение" className="preview-img" />
     </div>
   )}
 </div>
