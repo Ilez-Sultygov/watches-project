@@ -90,25 +90,51 @@ class WatchController {
   }
 
   // Удалить часы
-  async deleteWatch(req, res) {
-    try {
-      const userId = req.user?.id; // Предполагается наличие аутентификации
+  // async deleteWatch(req, res) {
+  //   try {
+  //     const userId = req.user?.id; // Предполагается наличие аутентификации
 
-      const deletedWatch = await WatchService.delete(req.params.id, userId);
+  //     const deletedWatch = await WatchService.delete(req.params.id, userId);
+
+  //     if (!deletedWatch) {
+  //       return res.status(404).json({ error: 'Watch not found' });
+  //     }
+
+  //     res.status(204).send();
+  //   } catch (error) {
+  //     console.error('Error deleting watch:', error);
+
+  //     if (error.message.includes('Unauthorized')) {
+  //       return res.status(403).json({ error: error.message });
+  //     }
+
+  //     res.status(500).json({ error: 'Failed to delete watch' });
+  //   }
+  // }
+
+ async deleteWatch(req, res) {
+    try {
+      const { id } = req.params;
+
+      const deletedWatch = await WatchService.delete(id);
 
       if (!deletedWatch) {
-        return res.status(404).json({ error: 'Watch not found' });
+        return res.status(404).json({
+          status: 404,
+          message: "Часы не найдены",
+        });
       }
 
-      res.status(204).send();
-    } catch (error) {
-      console.error('Error deleting watch:', error);
-
-      if (error.message.includes('Unauthorized')) {
-        return res.status(403).json({ error: error.message });
-      }
-
-      res.status(500).json({ error: 'Failed to delete watch' });
+      res.status(200).json({
+        status: 200,
+        message: "Часы успешно удалены",
+      });
+    } catch (err) {
+      console.error("Ошибка удаления часов:", err.message);
+      res.status(500).json({
+        status: 500,
+        message: "Ошибка на сервере",
+      });
     }
   }
 

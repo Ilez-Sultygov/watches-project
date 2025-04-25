@@ -41,10 +41,9 @@ class WatchService {
 
   static async delete(id) {
     const watch = await this.getById(id);
-    if (!watch) {
-      throw new Error("Unauthorized: Only the admin can delete this watch");
-    }
-
+    // if (!watch) {
+    //   throw new Error("Unauthorized: Only the admin can delete this watch");
+    // }
     await watch.destroy();
     return watch;
   }
