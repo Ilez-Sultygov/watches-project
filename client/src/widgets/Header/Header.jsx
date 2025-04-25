@@ -60,12 +60,12 @@ export default function Header({ user, setUser }) {
         )}
         <div
           className="custom-page-link"
-          onClick={() => {
-            user ? navigate("/customOrder") : alert("Требуется авторизация!");
-          }}
+            onClick={() => {
+              user ? navigate("/customOrder") : alert("Требуется авторизация!");
+            }}
         >
           Предложить свой эскиз
-        </div>
+        </div>  
         <NavLink
           to="/"
           className='ok'
